@@ -1,0 +1,300 @@
+/* Estilos generales */
+:root {
+    --primary-color: #1a3c5e;
+    --secondary-color: #a12929;
+    --accent-color: #f0e6d2;
+    --text-color: #333;
+    --light-bg: #f9f9f9;
+    --border-color: #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e0e0e0' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    min-height: 100vh;
+}
+
+/* Encabezado */
+header {
+    border-bottom: 3px double var(--border-color);
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: var(--primary-color);
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.tagline {
+    font-style: italic;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.stamp {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    transform: rotate(-5deg);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Secciones principales */
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    margin-bottom: 15px;
+}
+
+/* Botones */
+.cta-button {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #2a5985;
+}
+
+.button-secondary {
+    background-color: #6c757d;
+}
+
+.button-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Pasos del proceso */
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.step {
+    width: 23%;
+    text-align: center;
+    background-color: var(--light-bg);
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    position: relative;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px;
+    font-weight: bold;
+}
+
+.step-desc {
+    font-size: 14px;
+}
+
+/* Notas y disclaimers */
+.disclaimer {
+    background-color: var(--accent-color);
+    padding: 15px;
+    border-left: 5px solid var(--secondary-color);
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Formulario */
+.form-section {
+    background-color: white;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.instructions {
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 16px;
+}
+input[type="range"] {
+    width: 100%;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.selected-value {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-group label {
+    margin-right: 15px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.acceptance {
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para PDF */
+#pdfTemplate {
+    font-family: 'Times New Roman', Times, serif;
+    color: #000;
+    line-height: 1.5;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stamp {
+        margin-top: 15px;
+    }
+    
+    .steps {
+        flex-direction: column;
+    }
+    
+    .step {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    button {
+        margin-bottom: 10px;
+    }
+}

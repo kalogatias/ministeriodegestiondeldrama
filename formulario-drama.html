@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Drama - Ministerio de Gestión del Drama</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Ministerio de Gestión del Drama</h1>
+                    <p class="tagline">Formulario Oficial de Reporte de Drama</p>
+                </div>
+                <div class="stamp">FORMULARIO MGD-2025</div>
+            </div>
+        </header>
+        
+        <main>
+            <section class="form-section">
+                <h2>Reporte de Drama Cotidiano</h2>
+                <p class="instructions">Complete todos los campos con información verídica y detallada sobre su drama.</p>
+                
+                <form id="dramaForm">
+                    <div class="form-group">
+                        <label for="nombreCompleto">Nombre completo del afectado/a:</label>
+                        <input type="text" id="nombreCompleto" name="nombreCompleto" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fechaDrama">Fecha en que ocurrió el drama:</label>
+                        <input type="date" id="fechaDrama" name="fechaDrama" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="categoriaDrama">Categoría del drama:</label>
+                        <select id="categoriaDrama" name="categoriaDrama" required>
+                            <option value="">-- Seleccione una categoría --</option>
+                            <option value="Relaciones personales">Relaciones personales</option>
+                            <option value="Laboral">Laboral</option>
+                            <option value="Familiar">Familiar</option>
+                            <option value="Existencial">Existencial</option>
+                            <option value="Económico">Económico</option>
+                            <option value="Social">Social</option>
+                            <option value="Otro">Otro (especificar)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="otraCategoriaContainer" style="display: none;">
+                        <label for="otraCategoria">Especifique la categoría:</label>
+                        <input type="text" id="otraCategoria" name="otraCategoria">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nivelDrama">Nivel de dramatismo (1-10):</label>
+                        <input type="range" id="nivelDrama" name="nivelDrama" min="1" max="10" value="5" required>
+                        <div class="range-labels">
+                            <span>1 (Leve)</span>
+                            <span>10 (Catastrófico)</span>
+                        </div>
+                        <div class="selected-value">Valor seleccionado: <span id="nivelDramaValue">5</span></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="descripcionDrama">Descripción detallada del drama:</label>
+                        <textarea id="descripcionDrama" name="descripcionDrama" rows="5" required 
+                                  placeholder="Describa su drama con el mayor detalle posible. Incluya hechos, sentimientos y posibles consecuencias."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="personasInvolucradas">Personas involucradas (separadas por coma):</label>
+                        <input type="text" id="personasInvolucradas" name="personasInvolucradas" 
+                               placeholder="Ej: Jefe, Vecino, Ex-pareja">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Intentos previos de resolución:</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="intentos" value="Conversación"> Conversación</label>
+                            <label><input type="checkbox" name="intentos" value="Ignorar"> Ignorar</label>
+                            <label><input type="checkbox" name="intentos" value="Terapia"> Terapia</label>
+                            <label><input type="checkbox" name="intentos" value="Desahogo"> Desahogo con amigos</label>
+                            <label><input type="checkbox" name="intentos" value="Llanto"> Llanto desconsolado</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="expectativas">¿Qué espera del proceso burocrático?</label>
+                        <select id="expectativas" name="expectativas" required>
+                            <option value="">-- Seleccione una opción --</option>
+                            <option value="Resolución">Resolución completa</option>
+                            <option value="Mitigación">Mitigación parcial</option>
+                            <option value="Archivo">Simple archivo y olvido</option>
+                            <option value="Validación">Validación de mis sentimientos</option>
+                            <option value="Venganza">Venganza burocrática</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group acceptance">
+                        <label>
+                            <input type="checkbox" id="aceptaTerminos" name="aceptaTerminos" required>
+                            Acepto que mi drama sea procesado, archivado y potencialmente ignorado por la maquinaria burocrática del Ministerio
+                        </label>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="reset" class="button button-secondary">Limpiar formulario</button>
+                        <button type="button" id="submitButton" class="button">Enviar reporte</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+        
+        <footer>
+            <p>© 2025 Ministerio de Gestión del Drama - Una iniciativa artística</p>
+            <p><a href="index.html">Volver a la página principal</a></p>
+        </footer>
+    </div>
+    
+    <!-- Template para el PDF que será generado -->
+    <div id="pdfTemplate" style="display: none;">
+        <div id="pdfContent">
+            <!-- El contenido será llenado por JavaScript -->
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
