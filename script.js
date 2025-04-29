@@ -298,10 +298,11 @@ async function generarPDF() {
     doc.text(textLines, 20, posY);
     
     // Actualizar posición Y después del texto
-    posY += textLines.length * 7 + 15;
+    // posY += textLines.length * 7 + 15;
+    posY += textLines.length * 4;
     
     // Añadir marca de agua grande en el fondo
-    dibujarMarcaAgua(doc, 'MINISTERIO DE DRAMA', '#888888', 45, 100, 160, 50);
+    dibujarMarcaAgua(doc, 'MINISTERIO DE DRAMA', '#888888', 45, 110, 180, 50);
     
     // Añadir sellos
     // dibujarSello(doc, 'INGRESADO', '#a12929', 0, 20, posY, 25);
@@ -314,23 +315,23 @@ async function generarPDF() {
         // Ejemplo: insertar una imagen de sello personalizado
         await insertarImagen( doc, 'img/sello-ingresado.png', 20, posY, 40, 40, 0, 1.0);
         await insertarImagen( doc, 'img/sello-archivado.png', 75, posY, 40, 40, 0, 1.0);
+        await insertarImagen( doc, 'img/sello-noInsistir.png', 45, posY+10, 40, 40, 0, 1.0);
         
     } catch (error) {
         console.error('Error al insertar imágenes:', error);
     }
     
-    
-    // Pie de página
-    posY += 60;
-    doc.setFontSize(10);
-    doc.setTextColor(100, 100, 100);
-    doc.text('Este documento es parte de una iniciativa artística y no tiene validez legal.', 105, posY, { align: 'center' });
-    doc.text('© 2025 Ministerio de Gestión del Drama', 105, posY + 5, { align: 'center' });
-    
+      
     // Signature de aprobación
-    posY -= 20;
+    posY += 40;
     doc.line(120, posY, 180, posY);
     doc.text('Firma del Burócrata de Turno', 150, posY + 5, { align: 'center' });
+    
+    // Pie de página
+    doc.setFontSize(10);
+    doc.setTextColor(100, 100, 100);
+    doc.text('Este documento es parte de una iniciativa artística y no tiene validez legal.', 105, 255, { align: 'center' });
+    doc.text('© 2025 Ministerio de Gestión del Drama', 105, 260, { align: 'center' });
     
     // Añadir nota sobre el drama en letra pequeña
     doc.setFontSize(8);

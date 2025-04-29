@@ -283,8 +283,7 @@ footer a:hover {
 
 /* Estilos para PDF */
 #pdfTemplate {
-    /* font-family: 'Times New Roman', Times, serif; */
-    font-family: "Merriweather", serif;
+    font-family: 'Times New Roman', Times, serif;
     color: #000;
     line-height: 1.5;
 }
