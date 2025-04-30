@@ -101,6 +101,14 @@ h2 {
     margin-bottom: 15px;
 }
 
+.intro p a{
+    color: var(--primary-color);
+}
+
+.italica {
+    font-style: italic;
+}
+
 /* Botones */
 .cta-button {
     text-align: center;
