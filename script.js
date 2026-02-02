@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Actualizar año dinámicamente en todos los elementos con clase 'current-year'
+    document.querySelectorAll('.current-year').forEach(function(el) {
+        el.textContent = new Date().getFullYear();
+    });
+
     // Mostrar campo de otra categoría si se selecciona "Otro"
     const categoriaDrama = document.getElementById('categoriaDrama');
     const otraCategoriaContainer = document.getElementById('otraCategoriaContainer');
@@ -331,7 +336,7 @@ async function generarPDF() {
     doc.setFontSize(10);
     doc.setTextColor(100, 100, 100);
     doc.text('Este documento es parte de una iniciativa artística y no tiene validez legal.', 105, 255, { align: 'center' });
-    doc.text('© 2025 Ministerio de Gestión del Drama', 105, 260, { align: 'center' });
+    doc.text(`© ${new Date().getFullYear()} Ministerio de Gestión del Drama`, 105, 260, { align: 'center' });
     
     // Añadir nota sobre el drama en letra pequeña
     doc.setFontSize(8);
@@ -340,7 +345,12 @@ async function generarPDF() {
     
     // Guardar PDF
     doc.save(`Tramite-Drama-${idTramite}.pdf`);
-    
+
+    // Registrar evento de generación de PDF en Goatcounter
+    if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: 'pdf-generado', event: true });
+    }
+
     // Mostrar mensaje de éxito
     alert('Su trámite ha sido procesado correctamente. El comprobante se está descargando.');
 }
